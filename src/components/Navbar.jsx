@@ -8,6 +8,10 @@ import ThemeToggleBtn from './ThemeToggleBtn';
 const Navbar = ({ theme, setTheme }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const closeMenu = () => setSidebarOpen(false);
+  const handleNavigation = () => {
+    closeMenu();
+    window.scrollTo(0, 0);
+  };
 
   const linkClass =
     'py-2 transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary dark:hover:text-teal-300';
@@ -15,7 +19,7 @@ const Navbar = ({ theme, setTheme }) => {
   return (
     <header className='sticky top-0 z-40 border-b border-slate-200/70 bg-white/90 shadow-sm backdrop-blur-xl transition-colors dark:border-slate-800 dark:bg-slate-950/90'>
       <div className='mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8'>
-        <Link to='/' onClick={closeMenu} aria-label='Word and Spirit Assembly home'>
+        <Link to='/' onClick={handleNavigation} aria-label='Word and Spirit Assembly home'>
           <img
             src={Logo}
             alt='Word and Spirit Assembly'
@@ -48,12 +52,12 @@ const Navbar = ({ theme, setTheme }) => {
           </button>
 
           <ThemeToggleBtn theme={theme} setTheme={setTheme} />
-          <Link onClick={closeMenu} to='/' className={linkClass}>HOME</Link>
-          <Link onClick={closeMenu} to='/about' className={linkClass}>ABOUT</Link>
-          <Link onClick={closeMenu} to='/connect' className={linkClass}>CONNECT</Link>
-          <Link onClick={closeMenu} to='/events' className={linkClass}>EVENTS</Link>
+          <Link onClick={handleNavigation} to='/' className={linkClass}>HOME</Link>
+          <Link onClick={handleNavigation} to='/about' className={linkClass}>ABOUT</Link>
+          <Link onClick={handleNavigation} to='/connect' className={linkClass}>CONNECT</Link>
+          <Link onClick={handleNavigation} to='/events' className={linkClass}>EVENTS</Link>
           <Link
-            onClick={closeMenu}
+            onClick={handleNavigation}
             to='/give'
             className='inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-teal-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900'
           >

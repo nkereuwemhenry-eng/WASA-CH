@@ -12,10 +12,8 @@ const Leadpastor = () => {
         <div className='absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/90' />
       </div>
 
-      <div className='relative mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-16 lg:grid-cols-[1.1fr_1fr] lg:px-16 xl:px-20 lg:py-20'>
-        <div className='hidden lg:block' />
-
-        <div className='flex flex-col justify-center lg:pl-8'>
+      <div className='relative mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-16 lg:grid-cols-[1fr_1.1fr] lg:px-16 xl:px-20 lg:py-20'>
+        <div className='flex flex-col justify-center'>
           <h2 className='mb-6 text-[22px] font-bold uppercase tracking-[0.22em] text-white sm:text-[26px]'>
             The King In Zion
           </h2>

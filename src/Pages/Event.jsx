@@ -69,7 +69,7 @@ const Event = () => {
   return (
     <main className='bg-slate-50 text-slate-900 transition-colors dark:bg-slate-950 dark:text-slate-100'>
       <section className='px-4 pb-14 pt-12 sm:px-6 sm:pb-16 sm:pt-20'>
-        <div className='mx-auto max-w-6xl'>
+        <div className='mx-auto max-w-7xl'>
           <p className='text-sm font-bold uppercase tracking-[0.22em] text-primary dark:text-teal-300'>
             Life at Word and Spirit Assembly
           </p>
@@ -81,14 +81,14 @@ const Event = () => {
             celebrations that bring our church family together.
           </p>
 
-          <div className='relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-slate-200 sm:mt-10 sm:aspect-[16/9] sm:rounded-3xl lg:aspect-[2.4/1] dark:bg-slate-800'>
+          <div className='relative mt-8 w-full overflow-hidden rounded-2xl bg-slate-200 shadow-xl shadow-slate-900/10 sm:mt-10 sm:rounded-3xl dark:bg-slate-800 dark:shadow-black/30'>
             <img
               src={FamilyWeekImage}
               alt='Word and Spirit Assembly celebrating together'
-              className='absolute inset-0 h-full w-full object-cover object-center'
+              fetchPriority='high'
+              className='block h-auto w-full'
             />
-            <div className='absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/15 to-transparent' />
-            <div className='absolute inset-x-0 bottom-0 p-5 text-white sm:p-8 lg:p-10'>
+            <div className='absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent p-5 text-white sm:p-8 lg:p-10'>
               <p className='text-xs font-bold uppercase tracking-[0.18em] text-teal-200 sm:text-sm sm:tracking-[0.2em]'>
                 Every August
               </p>
@@ -132,7 +132,7 @@ const Event = () => {
                     ? 'lg:grid-cols-2'
                     : event.photos.length === 3
                       ? 'lg:grid-cols-3'
-                      : 'lg:grid-cols-4'
+                      : 'lg:grid-cols-2'
               }`}
             >
               {event.photos.map((photo, photoIndex) => (
@@ -156,41 +156,49 @@ const Event = () => {
       ))}
 
       <section className='bg-slate-100 px-4 py-14 transition-colors sm:px-6 sm:py-20 dark:bg-slate-900'>
-        <div className='mx-auto grid max-w-6xl overflow-hidden rounded-3xl bg-slate-950 text-white shadow-xl shadow-slate-900/10 md:grid-cols-2 dark:shadow-black/30'>
-          <div className='relative min-h-64 md:min-h-full'>
+        <article className='mx-auto grid max-w-6xl overflow-hidden rounded-3xl bg-white shadow-xl shadow-slate-900/10 dark:bg-slate-950 dark:shadow-black/30 lg:grid-cols-[1.05fr_0.95fr]'>
+          <div className='relative aspect-[4/3] overflow-hidden bg-slate-200 sm:aspect-[16/10] lg:aspect-auto lg:min-h-[520px] dark:bg-slate-800'>
             <img
               src={ConventionImage}
-              alt='Church gathering during a special convention'
+              alt='Pastor preaching at Word and Spirit Assembly'
               loading='lazy'
-              className='absolute inset-0 h-full w-full object-cover'
+              className='absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]'
             />
-            <div className='absolute inset-0 bg-slate-950/35' />
+            <div className='absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent' />
+            <p className='absolute bottom-5 left-5 rounded-full border border-white/25 bg-slate-950/50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm sm:bottom-7 sm:left-7'>
+              Word and Spirit Assembly
+            </p>
           </div>
-          <div className='p-7 sm:p-10 lg:p-12'>
-            <p className='text-sm font-bold uppercase tracking-[0.2em] text-teal-300'>
-              In November
+          <div className='flex flex-col justify-center p-6 text-slate-900 sm:p-9 lg:p-12 dark:text-slate-100'>
+            <p className='text-sm font-bold uppercase tracking-[0.2em] text-primary dark:text-teal-300'>
+              Our annual gathering
             </p>
-            <h2 className='mt-4 text-2xl font-black uppercase sm:text-3xl'>
-              Old Path Revival Annual Convention
+            <h2 className='mt-4 text-3xl font-black uppercase leading-tight tracking-tight sm:text-4xl'>
+              Old Path Revival Convention
             </h2>
-            <p className='mt-5 leading-7 text-white/75'>
-              Our annual Old Path Revival Convention is held during the
-              second week of November. It is a time for our church family to
-              gather for worship, teaching, miracles, and spiritual renewal as
-              we prepare for the new church year.
+            <div className='mt-6 inline-flex w-fit items-center gap-3 rounded-xl border border-teal-700/15 bg-teal-50 px-4 py-3 dark:border-teal-300/20 dark:bg-teal-950/60'>
+              <span className='text-lg' aria-hidden='true'>✦</span>
+              <span className='font-bold text-slate-900 dark:text-white'>
+                November
+              </span>
+            </div>
+            <p className='mt-6 leading-7 text-slate-600 dark:text-slate-300'>
+              A special time for our church family to come together for
+              worship, teaching, miracles, and spiritual renewal as we prepare
+              for the new church year.
             </p>
-            <p className='mt-4 text-sm leading-6 text-white/60'>
-              Specific dates and programme details can be shared when they are
-              announced.
+            <p className='mt-4 text-sm leading-6 text-slate-500 dark:text-slate-400'>
+              Specific dates and programme details will be shared when they
+              are announced.
             </p>
             <Link
               to='/connect'
-              className='mt-8 inline-flex items-center justify-center rounded-full bg-teal-300 px-6 py-3 text-sm font-bold uppercase tracking-wide text-slate-950 transition duration-200 hover:-translate-y-0.5 hover:bg-teal-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-950'
+              className='mt-8 inline-flex w-fit items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-primary/20 transition duration-200 hover:-translate-y-0.5 hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-slate-950'
             >
-              Connect with us
+              Connect with us <span aria-hidden='true' className='ml-2'>→</span>
             </Link>
           </div>
-        </div>
+        </article>
       </section>
     </main>
   );

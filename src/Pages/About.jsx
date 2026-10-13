@@ -47,18 +47,22 @@ const About = () => {
         </div>
       </section>
 
-      <section className='relative bg-teal-950 px-5 py-12 md:px-10 md:py-20'>
+      <section className='relative bg-blue-950 px-5 py-12 md:px-10 md:py-20'>
         <div className='mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 md:grid-cols-12 lg:gap-12'>
-          <div className='h-[300px] sm:h-[400px] md:col-span-5 md:h-[500px]'>
+          <div className='h-[300px] overflow-hidden rounded-lg shadow-xl sm:h-[400px] md:col-span-5 md:h-[500px]'>
             <img
               src={preachingPhoto}
               alt='Church leader preaching to the congregation'
-              className='h-full w-full rounded-lg object-cover'
+              loading='lazy'
+              className='h-full w-full object-cover object-center'
             />
           </div>
 
           <div className='relative rounded-2xl bg-white p-6 text-slate-900 shadow-xl sm:p-8 md:col-span-7 md:p-10 dark:bg-slate-900 dark:text-slate-100'>
-            <h2 className='mb-8 text-4xl font-black md:text-5xl'>
+            <p className='mb-3 text-sm font-bold uppercase tracking-[0.2em] text-primary dark:text-teal-300'>
+              Our foundation
+            </p>
+            <h2 className='mb-8 text-3xl font-black sm:text-4xl md:text-5xl'>
               WE <span className='text-primary dark:text-teal-300'>BELIEVE</span>
             </h2>
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const scrollToTop = () => window.scrollTo(0, 0);
 
   return (
     <footer className='border-t border-slate-800 bg-slate-950 px-6 py-10 text-white'>
@@ -11,24 +12,24 @@ const Footer = () => {
             Word and Spirit Assembly
           </p>
           <p className='mt-2 text-sm text-white/60'>
-            Growing in the Word. Living by the Spirit.
+            Transforming Lives...
           </p>
         </div>
 
         <nav aria-label='Footer navigation' className='flex flex-wrap gap-x-6 gap-y-3 text-sm'>
-          <Link className='text-white/75 transition hover:text-white' to='/'>
+          <Link onClick={scrollToTop} className='text-white/75 transition hover:text-white' to='/'>
             Home
           </Link>
-          <Link className='text-white/75 transition hover:text-white' to='/about'>
+          <Link onClick={scrollToTop} className='text-white/75 transition hover:text-white' to='/about'>
             About
           </Link>
-          <Link className='text-white/75 transition hover:text-white' to='/connect'>
+          <Link onClick={scrollToTop} className='text-white/75 transition hover:text-white' to='/connect'>
             Connect
           </Link>
-          <Link className='text-white/75 transition hover:text-white' to='/events'>
+          <Link onClick={scrollToTop} className='text-white/75 transition hover:text-white' to='/events'>
             Events
           </Link>
-          <Link className='font-bold text-sky-300 transition hover:text-white' to='/give'>
+          <Link onClick={scrollToTop} className='font-bold text-sky-300 transition hover:text-white' to='/give'>
             Give
           </Link>
         </nav>

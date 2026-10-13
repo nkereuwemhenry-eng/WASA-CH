@@ -52,26 +52,15 @@ const Hero = () => {
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          {index === 0 && (
-            <div
-              aria-hidden='true'
-              className='absolute inset-0 scale-105 bg-cover bg-center opacity-50 blur-xl'
-              style={{ backgroundImage: `url(${slide.image})` }}
-            />
-          )}
           <img
             src={slide.image}
             alt={slide.imageAlt}
-            className={`relative h-full w-full ${
-              index === 0
-                ? 'object-cover object-[center_18%] lg:object-contain'
-                : 'object-cover'
-            }`}
+            className='h-full w-full object-fill'
           />
         </div>
       ))}
 
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/75 via-black/55 to-black/35" />
+      <div className="absolute inset-0 -z-10 bg-black/55" />
 
       <div className="mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
         <div className="max-w-3xl">
