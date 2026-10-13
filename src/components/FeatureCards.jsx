@@ -8,6 +8,7 @@ const cards = [
         category: 'WHO WE ARE',
         title: 'ABOUT US',
         image: aboutPhoto,
+        imagePosition: 'object-top',
         link: '/about',
         action: 'Learn More',
     },
@@ -41,7 +42,9 @@ const FeatureCards = () => {
                         <img
                             src={card.image}
                             alt={card.title}
-                            className='absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105'
+                            className={`absolute inset-0 h-full w-full object-cover transition-transform duration-700 ${
+                                card.imagePosition || 'object-center group-hover:scale-105'
+                            }`}
                         />
                         <div className='absolute inset-0 bg-black/40' />
                         <div className='absolute inset-0 flex flex-col justify-between p-6 md:p-7 text-white'>

@@ -46,24 +46,39 @@ const Hero = () => {
   return (
     <section className="relative isolate flex min-h-[70vh] items-center overflow-hidden bg-gray-900 text-white sm:min-h-[80vh]">
       {slides.map((slide, index) => (
-        <img
+        <div
           key={slide.image}
-          src={slide.image}
-          alt={slide.imageAlt}
-          className={`absolute inset-0 -z-20 h-full w-full object-cover transition-opacity duration-1000 ${
+          className={`absolute inset-0 -z-20 overflow-hidden transition-opacity duration-1000 ${
             index === currentSlide ? 'opacity-100' : 'opacity-0'
           }`}
-        />
+        >
+          {index === 0 && (
+            <div
+              aria-hidden='true'
+              className='absolute inset-0 scale-105 bg-cover bg-center opacity-50 blur-xl'
+              style={{ backgroundImage: `url(${slide.image})` }}
+            />
+          )}
+          <img
+            src={slide.image}
+            alt={slide.imageAlt}
+            className={`relative h-full w-full ${
+              index === 0
+                ? 'object-cover object-[center_18%] lg:object-contain'
+                : 'object-cover'
+            }`}
+          />
+        </div>
       ))}
 
-      <div className="absolute inset-0 -z-10 bg-black/55" />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/75 via-black/55 to-black/35" />
 
       <div className="mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
         <div className="max-w-3xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-gray-200 sm:text-base">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-white sm:text-base">
             Word and Spirit Assembly
           </p>
-          <h1 className="text-3xl font-bold leading-tight text-gray-300 sm:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-bold leading-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl">
             {slides[currentSlide].title}
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
