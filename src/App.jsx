@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import HomeAbout from './components/About'
@@ -40,6 +40,7 @@ const PageRoutes = () => {
         <Route path="/connect" element={<Connect />} />
         <Route path="/events" element={<Event />} />
         <Route path="/give" element={<Give />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </div>
   )
@@ -55,7 +56,7 @@ const App = () => {
   }, [theme])
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
       <div className={`${theme === 'dark' ? 'dark' : ''} min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100`}>
         <Navbar theme={theme} setTheme={setTheme} />
         <PageRoutes />
