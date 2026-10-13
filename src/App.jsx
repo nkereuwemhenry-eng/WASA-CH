@@ -15,15 +15,12 @@ const PageRoutes = () => {
   const location = useLocation()
 
   useEffect(() => {
-    if (location.hash) {
-      document
-        .getElementById(decodeURIComponent(location.hash.slice(1)))
-        ?.scrollIntoView()
-      return
-    }
-
-    window.scrollTo(0, 0)
-  }, [location.pathname, location.hash])
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
+  }, [location.pathname]);
 
   return (
     <div key={location.pathname} className='page-enter'>
